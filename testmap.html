@@ -1,0 +1,82 @@
+<html>
+
+<head>
+    <script>
+        var ctx, myCanvas, c, img;
+
+
+        //Startar funktioner
+        function start() {
+
+            myCanvas = document.getElementById("myCanvas");
+            ctx = myCanvas.getContext("2d");
+            window.setInterval(gameloop, 20);
+            img1 = document.getElementById("HSno");
+            img2 = document.getElementById("Block1");
+            img3 = document.getElementById("Block2");
+            img4 = document.getElementById("Sno");
+            img5 = document.getElementById("VSno");
+        }
+
+
+        //Karta
+        var map = [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+           [0, 0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 4, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+           [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 2, 2, 2, 0, 2, 2, 2, 1, 0],
+            [3, 2, 2, 2, 2, 2, 0, 2, 2, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+        ];
+
+
+
+
+        function gameloop() {
+            paint();
+        }
+
+        function paint() {
+            // Måla karta
+            console.log(img);
+
+
+            for (var j = 0; j < map.length; j++) {
+                for (var i = 0; i < map[0].length; i++) {
+                    //Välj bild
+                    if (map[j][i] == 1) {
+                        ctx.drawImage(img1, i * 50, j * 50, 50, 50);
+                    } else if (map[j][i] == 2) {
+                        ctx.drawImage(img4, i * 50, j * 50, 50, 50);
+                    } else if (map[j][i] == 3) {
+                        ctx.drawImage(img5, i * 50, j * 50, 50, 50);
+                    } else if (map[j][i] == 4) {
+                        ctx.drawImage(img2, i * 50, j * 50, 50, 50);
+                    } else {
+
+                    }
+
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body onload="start()">
+    <canvas width=" 800 " height=" 600 " id="myCanvas" /canvas>
+        <img src="HogerSno.png" id="HSno" style="display: none">
+        <img src="Block.png" id="Block1" style="display: none">
+        <img src="block2.png" id="Block2" style="display: none">
+        <img src="Sno.png" id="Sno" style="display: none">
+        <img src="VansterSno.png" id="VSno" style="display: none">
+
+
+</body>
+
+</html>
